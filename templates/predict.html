@@ -1,0 +1,74 @@
+
+<div class="col-1">
+  <div class="panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
+    <i class="fa fa-times"></i>
+    <div class="panel-heading templatemo-position-relative"><h2 class="text-uppercase">Labels</h2></div>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <td>Sentence</td>
+            <td>Labels</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for sentence in predict.label_predict %}
+          <tr>
+            <td>{{sentence}}</td>
+            <td>{% for label in predict.label_predict[sentence] %}{{label}}:{{predict.label_predict[sentence][label]}}|{% endfor %} </td>
+          </tr> 
+          {% endfor %}               
+        </tbody>
+      </table>    
+    </div> 
+  </div>
+</div>
+
+
+<div class="col-1">
+  <div class="panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
+    <i class="fa fa-times"></i>
+    <div class="panel-heading templatemo-position-relative"><h2 class="text-uppercase">Sentiments</h2></div>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <td>Sentence</td>
+            <td>Sentiments</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for sentence in predict.sentiment_predict %}
+          <tr>
+            <td>{{sentence}}</td>
+            <td>{{predict.sentiment_predict[sentence]}}</td>
+          </tr> 
+          {% endfor %}               
+        </tbody>
+      </table>    
+    </div> 
+  </div>
+</div>
+
+<div class="col-1">
+  <div class="panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
+    <i class="fa fa-times"></i>
+    <div class="panel-heading templatemo-position-relative"><h2 class="text-uppercase">Review Quality</h2></div>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <td>Quality</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key in predict.review_predict %}
+          <tr>
+            <td>{{predict.review_predict[key]}}</td>
+          </tr>             
+          {% endfor %}
+        </tbody>
+      </table>    
+    </div> 
+  </div>
+</div>
